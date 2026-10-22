@@ -1,17 +1,16 @@
 package domain;
 
-public class TShirt extends Product{
+public class Skirts extends Product {
 
-	public TShirt(double origPrice, double updPrice) {
+	public Skirts(double origPrice, double updPrice) {
 		super(origPrice, updPrice);
 		// TODO Auto-generated constructor stub
 	}
 
-
 	@Override
 	public double calcRealDiff() {
 		// TODO Auto-generated method stub
-		return 0.4*Math.abs(getOriginalPrice()-getUpdatedPrice());
+		return 0.1*Math.abs(getOriginalPrice()-getUpdatedPrice());
 	}
 
 }

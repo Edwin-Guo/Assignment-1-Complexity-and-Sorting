@@ -22,19 +22,19 @@ public class ReadData {
 						productArray[i] = new Jeans(originalPrice, updatedPrice);
 						break;
 					case "TShirts":
-						productArray[i] = new TShirt(originalPrice, updatedPrice);
+						productArray[i] = new TShirts(originalPrice, updatedPrice);
 						break;
 					case "Skirts":
-						productArray[i] = new Skirt(originalPrice, updatedPrice);
+						productArray[i] = new Skirts(originalPrice, updatedPrice);
 						break;
 					case "Dresses":
-						productArray[i] = new Dress(originalPrice, updatedPrice);
+						productArray[i] = new Dresses(originalPrice, updatedPrice);
 						break;
 					case "Shorts":
 						productArray[i] = new Shorts(originalPrice, updatedPrice);
 						break;
 					case "Jackets":
-						productArray[i] = new Jacket(originalPrice, updatedPrice);
+						productArray[i] = new Jackets(originalPrice, updatedPrice);
 						break;
 					case "Shoes":
 						productArray[i] = new Shoes(originalPrice, updatedPrice);

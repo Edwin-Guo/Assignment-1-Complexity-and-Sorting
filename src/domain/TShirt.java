@@ -7,16 +7,11 @@ public class TShirt extends Product{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public int compareTo(Product o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public double calcRealDiff() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.4*Math.abs(getOriginalPrice()-getUpdatedPrice());
 	}
 
 }

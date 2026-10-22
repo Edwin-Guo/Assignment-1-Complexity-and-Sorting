@@ -15,5 +15,21 @@ public abstract class Product implements Comparable<Product> {
 	public double getUpdatedPrice() {
 		return updatedPrice;
 	}
+	
 	public abstract double calcRealDiff();
+	
+	public int compareTo(Product that) {
+		if( this.calcRealDiff() > that.calcRealDiff())
+		{
+			return 1;
+		}
+		else if( this.calcRealDiff()< that.calcRealDiff() )
+		{
+			return -1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 }

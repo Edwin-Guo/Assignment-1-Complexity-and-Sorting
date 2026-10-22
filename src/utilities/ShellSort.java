@@ -1,43 +1,60 @@
+
 package utilities;
 
 import java.util.Comparator;
+import domain.Product;
 
 public class ShellSort {
 
-    public static <T extends Comparable<? super T>> void sort(
-            T[] array, Comparator<? super T> comparator) {
+    // Shell Sort using Comparator
+    public static void sort(Product[] products,
+                            Comparator<Product> comparator) {
 
-        int n = array.length;
+        int n = products.length;
 
-        // Start with a large gap, then make it smaller
         for (int gap = n / 2; gap > 0; gap /= 2) {
 
-            // Compare elements that are gap positions apart
             for (int i = gap; i < n; i++) {
 
-                T temp = array[i];
+                Product temp = products[i];
                 int j = i;
 
-                // Move smaller elements to the right
+                // Move smaller values to the right
                 while (j >= gap &&
-                        compare(array[j - gap], temp, comparator) < 0) {
+                       comparator.compare(products[j - gap], temp) < 0) {
 
-                    array[j] = array[j - gap];
+                    products[j] = products[j - gap];
                     j -= gap;
                 }
 
-                array[j] = temp;
+                products[j] = temp;
             }
         }
     }
 
-    private static <T extends Comparable<? super T>> int compare(
-            T first, T second, Comparator<? super T> comparator) {
+    // Shell Sort using Comparable
+    public static void sort(Product[] products) {
 
-        if (comparator != null) {
-            return comparator.compare(first, second);
+        int n = products.length;
+
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+
+            for (int i = gap; i < n; i++) {
+
+                Product temp = products[i];
+                int j = i;
+
+                // Move smaller values to the right
+                while (j >= gap &&
+                       products[j - gap].compareTo(temp) < 0) {
+
+                    products[j] = products[j - gap];
+                    j -= gap;
+                }
+
+                products[j] = temp;
+            }
         }
-
-        return first.compareTo(second);
     }
 }
+

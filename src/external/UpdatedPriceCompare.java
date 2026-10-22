@@ -7,9 +7,14 @@ import domain.Product;
 public class UpdatedPriceCompare implements Comparator<Product>{
 
 	@Override
-	public int compare(Product o1, Product o2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compare(Product p1, Product p2) {
+		if (p1.getUpdatedPrice() > p2.getUpdatedPrice()) {
+			return 1;
+		} else if (p1.getUpdatedPrice() < p2.getUpdatedPrice()) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 
 }

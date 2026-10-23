@@ -1,16 +1,19 @@
 package utilities;
+
 import java.util.Comparator;
 import domain.Product;
 
 /**
  * 
  * BubbleSort sorts objects from largest to smallest using bubble sort
+ * 
  * @author Adrianne Shean Pacifico
  */
 public class BubbleSort {
     /**
      * this sorts products using compareTo() (calculated difference)
-     * @param products is the array to sort
+     * 
+     * @param products the array to sort
      */
     public static void sort(Product[] products) {
         sort(products, null);
@@ -19,11 +22,12 @@ public class BubbleSort {
     /**
      * sorts products using a comparator (original or updated price)
      * if the comparator is null, compareTo() will be used instead
-     * @param products is the array to sort
-     * @param comparator this is how to compare two products
+     * 
+     * @param products   the array to sort
+     * @param comparator how to compare two products, or null for compareTo()
      */
     public static void sort(Product[] products, Comparator<Product> comparator) {
-        // nothing to sort if no array
+        // nothing to sort if there is no array
         if (products == null) {
             return;
         }
@@ -45,7 +49,14 @@ public class BubbleSort {
     }
 
     /**
-     * this compares two products with the comparator or with compareTo() if its null
+     * this compares two products with the comparator or with compareTo() if its
+     * null
+     * 
+     * @param a          first product
+     * @param b          second product
+     * @param comparator how to compare two products, or null for compareTo()
+     * @return a negative number, zero, or a positive number if a is less than,
+     *         greater than, or equal to b
      */
     private static int compare(Product a, Product b, Comparator<Product> comparator) {
         if (comparator == null) {

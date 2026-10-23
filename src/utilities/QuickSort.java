@@ -3,8 +3,11 @@ package utilities;
 import java.util.Comparator;
 import domain.Product;
 
+//Sorting product array using the QuickSort algorithm using the median of 3 approach for pivot selection.
 public class QuickSort {
-	/*@param products array which contains elements.
+	/** 
+	 * @param products array which contains elements.
+	 * @param comp comparator is used to compare the elements of the array.
 	 * Checks if the array is null or is empty, to see what the next step is.
 	 * @return If array is null or only has 1 or less, there's no sorting needed.
 	 */
@@ -15,27 +18,36 @@ public class QuickSort {
 		//Sorts the array from smallest to largest: low index starting at 0, high index the last element of the array.
 		quickSort(products, 0, products.length - 1, comp);  
 	}
+	/** 
+	 * Array is recursively sorted using the QuickSort algorithm.
+	 * @param products array which contains elements.
+	 * @param low lower bound index of the section that needs to be sorted.
+	 * @param high upper bound index of the section that needs to be sorted.
+	 * @param comp comparator is used to compare the elements of the array.
+	 * Sorts the left and right side of the array.
+	 */
 	private static void quickSort(Product[] products, int low, int high, Comparator<Product> comp) {
 		//If low is greater than or equal to high, return because the section of the array we want to sort has only one element or no element, which means it's already sorted.
 		if (low >= high) { 
 			return;
 		}
-		/*
-		 * Partition for the section between low and high. 
-		 * Sorts the left and right side of the array
-		 */
 		int split = part(products, low, high, comp); 
 		quickSort(products, low, split - 1, comp); 
 		quickSort(products, split + 1, high, comp); 
 	}
-	 // //Used to find the middle index between for median of 3.
+	/**
+	 * Partition for the section between low and high. 
+	 * @param products is the one being partitioned. 
+	 * @param low lower bound index of the section that needs to be sorted.
+	 * @param high upper bound index of the section that needs to be sorted.
+	 * @param comp comparator is used to compare the elements of the array.
+	 * @return the index of the pivot after the process.
+	 * IF statements compares the value of low and mid, low and high, mid and high.
+	 * This is used for Median of 3, to sort them in order from low, mid, and high. 
+	 * Temporary variable is then used to store the current value of low/mid index.
+	 */
 	private static int part(Product[] products, int low, int high, Comparator<Product> comp) {
 		int mid = low + (high - low) / 2; 
-		/*
-		 * IF statements compares the value of low and mid, low and high, mid and high.
-		 * This is used for Median of 3, to sort them in order from low, mid, and high. 
-		 * Temporary variable is then used to store the current value of low/mid index.
-		 */
 		if (comp.compare(products[low], products[mid]) < 0){ 
 			Product temp = products[low]; 
 			products[low] = products[mid]; 

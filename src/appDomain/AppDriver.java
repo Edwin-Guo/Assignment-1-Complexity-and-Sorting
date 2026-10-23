@@ -27,7 +27,7 @@ public class AppDriver
 	public static void main( String[] args )
 	{
 		Comparator<Product> comp;
-		String compType = null;
+		String compType = "empty";
 		String sortAlg = null;
 		String file = null;
 		Product[] products;
@@ -57,7 +57,7 @@ public class AppDriver
 			}
 		}
 		
-		if (compType == null || sortAlg == null || file == null) {
+		if (compType.equals("empty") || sortAlg == null || file == null) {
 			System.out.println("An argument is missing, please provide \"-f<file_name> -t<compare_type> -s<sort_alg>\"");
 			return;
 		}
@@ -77,7 +77,7 @@ public class AppDriver
 				break;
 			case "d":
 				compType = "Real Difference";
-				comp = Comparator.naturalOrder();
+				comp = null;
 				break;
 			default:
 				System.out.println("Comparison type provided is invalid, please provide one of the following: \"o\", \"u\", \"d\". ");
@@ -95,7 +95,7 @@ public class AppDriver
 				sortAlg = "Selection Sort";
 				initialTime = System.currentTimeMillis();
 				System.out.println("Unable to select selection sort, get it?");
-//					SelectSort.selectionSort(products, comp);
+//				SelectSort.selectionSort(products, comp);
 				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "i":
@@ -113,8 +113,7 @@ public class AppDriver
 			case "q":
 				sortAlg = "Quick Sort";
 				initialTime = System.currentTimeMillis();
-				System.out.println("The sort so quick that it didn't even sort");
-//					QuickSort.something(products, comp);
+				QuickSort.sort(products, comp);
 				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "z":
@@ -140,13 +139,13 @@ public class AppDriver
 		System.out.println("Element 1:\t" + products[0].getClass() + "\t" + compType + ": " + getSortVal(products[0], compType));
 		if (inc == 1) {
 			for (int i = 1; i < products.length; i++) {
-				System.out.println( "Element " + i +":\t" + products[i].getClass() + "\t" + compType + ": " + getSortVal(products[i], compType));
+				System.out.println( "Element " + (i+1) +":\t" + products[i].getClass() + "\t" + compType + ": " + getSortVal(products[i], compType));
 			}
 		} else {
 			for (int i = inc; i < products.length; i+=inc) {
 				System.out.println( "Element " + i +":\t" + products[i].getClass() + "\t" + compType + ": " + getSortVal(products[i], compType));
 			}
-			System.out.println("Element" + lastIndex + ":\t" + products[lastIndex].getClass() + "\t" + compType + ": " + getSortVal(products[lastIndex], compType));
+			System.out.println("Element " + (lastIndex+1) + ":\t" + products[lastIndex].getClass() + "\t" + compType + ": " + getSortVal(products[lastIndex], compType));
 		}
 			System.out.println(sortAlg + " run time was: " + totalTime + " milliseconds");
 		

@@ -5,7 +5,7 @@ import java.util.Comparator;
 import domain.Product;
 
 public class InsertionSort {
-	public static Product[] insertionSort(Product[] products, Comparator<Product> comp) {
+	public static void sort(Product[] products, Comparator<Product> comp) {
 		int length = products.length;
 		for (int i = 1; i < length; i++) {
 			Product key = products[i];
@@ -16,6 +16,5 @@ public class InsertionSort {
 			}
 			products[j+1] = key;
 		}
-		return products;
 	}
 }

@@ -13,6 +13,7 @@ public class ReadData {
 			productArray = new Product[arraySize];
 			
 			for (int i = 0; i < arraySize; i++) {
+				line = reader.readLine();
 				String[] parts = line.trim().split(" ");
 				String productType = parts[0];
 				double originalPrice = Double.parseDouble(parts[1]);
@@ -43,7 +44,7 @@ public class ReadData {
 				
 			}
 		} catch (FileNotFoundException e){
-			System.out.println("Specified file was not found.");
+			System.out.println("Specified file was not found. Please check the file path.");
 		} catch (IOException ex) {
 			System.out.println("Error reading file found " + ex);
 		}

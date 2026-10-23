@@ -90,7 +90,7 @@ public class QuickSort {
 			Product temp2 = products[i]; 
 			products[i] = products[j]; 
 			products[j] = temp2; 
-			
+        }
 		/*
 		 * Make sures that everything is in placed in the index with proper pivot. Process repeats until every thing is sorted.
 		 * @return index for partition
@@ -102,5 +102,5 @@ public class QuickSort {
 		return i; 
 	}
 	}
-}
+
 

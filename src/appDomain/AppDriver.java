@@ -2,11 +2,7 @@ package appDomain;
 
 import java.util.Comparator;
 import external.*;
-import utilities.BubbleSort;
-import utilities.InsertionSort;
-import utilities.MergeSort;
-import utilities.ShellSort;
-import utilities.QuickSort;
+import utilities.*;
 import domain.Product;
 
 /**
@@ -94,8 +90,7 @@ public class AppDriver
 			case "s":
 				sortAlg = "Selection Sort";
 				initialTime = System.currentTimeMillis();
-				System.out.println("Unable to select selection sort, get it?");
-//				SelectSort.selectionSort(products, comp);
+				SelectionSort.sort(products, comp);
 				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "i":

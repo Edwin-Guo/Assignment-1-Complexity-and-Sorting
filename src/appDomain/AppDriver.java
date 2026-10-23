@@ -89,39 +89,39 @@ public class AppDriver
 				sortAlg = "Bubble Sort";
 				initialTime = System.currentTimeMillis();
 				BubbleSort.sort(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "s":
 				sortAlg = "Selection Sort";
 				initialTime = System.currentTimeMillis();
 				System.out.println("Unable to select selection sort, get it?");
 //					SelectSort.selectionSort(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "i":
 				sortAlg = "Insertion Sort";
 				initialTime = System.currentTimeMillis();
 				InsertionSort.sort(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "m":
 				sortAlg = "Merge Sort";
 				initialTime = System.currentTimeMillis();
 				MergeSort.sort(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "q":
 				sortAlg = "Quick Sort";
 				initialTime = System.currentTimeMillis();
 				System.out.println("The sort so quick that it didn't even sort");
 //					QuickSort.something(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			case "z":
 				sortAlg = "Shell Sort";
 				initialTime = System.currentTimeMillis();
 				ShellSort.sort(products, comp);
-				totalTime = System.currentTimeMillis - initialTime();
+				totalTime = System.currentTimeMillis() - initialTime;
 				break;
 			default:
 				System.out.println("Sort Algorithm provided is invalid, please provide one of the following: \"b\", \"s\", \"i\", \"m\", \"q\", \"z\".");
@@ -148,6 +148,7 @@ public class AppDriver
 			}
 			System.out.println("Element" + lastIndex + ":\t" + products[lastIndex].getClass() + "\t" + compType + ": " + getSortVal(products[lastIndex], compType));
 		}
+			System.out.println(sortAlg + " run time was: " + totalTime + " milliseconds");
 		
 
 

@@ -24,11 +24,11 @@ public class MergeSort {
      * this sorts products using comparator (original or updated price)
      * if the comparator is null, compareTo() will be used instead
      * 
-     * @param products   is the array to sort
-     * @param comparator this is how to compare two products
+     * @param products   the array to sort
+     * @param comparator how to compare two products, or null for compareTo()
      */
     public static void sort(Product[] products, Comparator<Product> comparator) {
-        // nothing to sort
+        // nothing to sort if there is no array
         if (products == null) {
             return;
         }
@@ -43,9 +43,16 @@ public class MergeSort {
 
     /**
      * splits the array in half, sorts each half, and then merges them
+     * 
+     * @param products   the array being sorted
+     * @param helper     extra array used for merging
+     * @param left       first index of this section
+     * @param right      last index of this section
+     * @param comparator how to compare two products, or null for compareTo()
      */
     private static void mergeSort(Product[] products, Product[] helper, int left, int right,
             Comparator<Product> comparator) {
+        // one element or less is already sorted
         if (left >= right) {
             return;
         }
@@ -57,6 +64,13 @@ public class MergeSort {
 
     /**
      * combines two sorted half into one and largest is first
+     * 
+     * @param products   the array being used
+     * @param helper     extra array used for merging
+     * @param left       first index of the left half
+     * @param middle     last index of the left half
+     * @param right      last index of the right half
+     * @param comparator how to compare two products, or null for compareTo()
      */
     private static void merge(Product[] products, Product[] helper, int left, int middle, int right,
             Comparator<Product> comparator) {
@@ -89,6 +103,12 @@ public class MergeSort {
     /**
      * this compares two products with the comparator
      * with compareTo() if its null
+     * 
+     * @param a          the first product
+     * @param b          the second product
+     * @param comparator how to compare two products, or null for compareTo()
+     * @return a negative number, zero, or a positive number if a is less than,
+     *         greater than, or equal to b
      */
     private static int compare(Product a, Product b, Comparator<Product> comparator) {
         if (comparator == null) {

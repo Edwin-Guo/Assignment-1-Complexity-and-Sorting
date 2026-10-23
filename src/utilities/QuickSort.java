@@ -48,17 +48,22 @@ public class QuickSort {
 	 */
 	private static int part(Product[] products, int low, int high, Comparator<Product> comp) {
 		int mid = low + (high - low) / 2; 
-		if (comp.compare(products[low], products[mid]) < 0){ 
+		/*
+		 * IF statements compares the value of low and mid, low and high, mid and high.
+		 * This is used for Median of 3, to sort them in order from low, mid, and high. 
+		 * Temporary variable is then used to store the current value of low/mid index.
+		 */
+		if (compare(products[low], products[mid], comp) < 0){ 
 			Product temp = products[low]; 
 			products[low] = products[mid]; 
 			products[mid] = temp; 
 		}
-		if (comp.compare(products[low], products[high]) < 0) { 
+		if (compare(products[low], products[high], comp) < 0) { 
 			Product temp = products[low];
 			products[low] = products[high]; 
 			products[high] = temp; 
 		}
-		if (comp.compare(products[mid], products[high]) < 0) {
+		if (compare(products[mid], products[high], comp) < 0) {
 			Product temp = products[mid]; 
 			products[mid] = products[high]; 
 			products[high] = temp; 
@@ -83,12 +88,12 @@ public class QuickSort {
 			
 			i++;
 			//While the value of the array at low is greater than the benchmark(pivot), i moves right.
-			while (comp.compare(products[i], benchmark) > 0) { 
+			while (compare(products[i], benchmark, comp) > 0) { 
 				i++;
 			}
 			j--;
 			//While the value of the array is less than the benchmark(pivot), j moves left.
-			while (comp.compare(products[j], benchmark) < 0) { 
+			while (compare(products[j], benchmark, comp) < 0) { 
 				j--;
 			}
 			//Loops break when both left and right pointer intersects.
@@ -113,6 +118,13 @@ public class QuickSort {
 		
 		return i; 
 	}
-	}
+	
+    private static int compare(Product a, Product b, Comparator<Product> comparator) {
+        if (comparator == null) {
+            return a.compareTo(b);
+        }
+        return comparator.compare(a, b);
+    }
+}
 
 

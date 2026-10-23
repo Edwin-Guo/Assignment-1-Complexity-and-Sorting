@@ -48,11 +48,6 @@ public class QuickSort {
 	 */
 	private static int part(Product[] products, int low, int high, Comparator<Product> comp) {
 		int mid = low + (high - low) / 2; 
-		/*
-		 * IF statements compares the value of low and mid, low and high, mid and high.
-		 * This is used for Median of 3, to sort them in order from low, mid, and high. 
-		 * Temporary variable is then used to store the current value of low/mid index.
-		 */
 		if (compare(products[low], products[mid], comp) < 0){ 
 			Product temp = products[low]; 
 			products[low] = products[mid]; 
@@ -118,7 +113,13 @@ public class QuickSort {
 		
 		return i; 
 	}
-	
+	/**
+	 * Compares two products using comparator
+	 * @param a the first product
+	 * @param b the second product
+	 * @param comparator used to compare the products
+	 * @return the results of the comparison.
+	 */
     private static int compare(Product a, Product b, Comparator<Product> comparator) {
         if (comparator == null) {
             return a.compareTo(b);

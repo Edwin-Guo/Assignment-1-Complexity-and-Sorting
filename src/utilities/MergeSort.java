@@ -6,12 +6,14 @@ import domain.Product;
 /**
  * 
  * MergeSort class sorts objects from largest to smallest using merge sort
+ * 
  * @author Adrianne Shean Pacifico
  */
 public class MergeSort {
 
     /**
      * sorts products using compareTo() (calculated difference)
+     * 
      * @param products is the array to sort
      */
     public static void sort(Product[] products) {
@@ -21,12 +23,17 @@ public class MergeSort {
     /**
      * this sorts products using comparator (original or updated price)
      * if the comparator is null, compareTo() will be used instead
-     * @param products  is the array to sort
+     * 
+     * @param products   is the array to sort
      * @param comparator this is how to compare two products
      */
     public static void sort(Product[] products, Comparator<Product> comparator) {
         // nothing to sort
-        if (products == null || products.length < 2) {
+        if (products == null) {
+            return;
+        }
+        // no sorting if there are less than 2 items
+        if (products.length < 2) {
             return;
         }
         // extra array is used here for merging

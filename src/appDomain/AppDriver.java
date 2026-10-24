@@ -174,7 +174,12 @@ public class AppDriver
 
 
 	}
-
+	/**
+	 * Gets the price that is needed based on the comparison type used
+	 * @param product The object that needs to get the price of for
+	 * @param compType The comparison type that was used for the sorting
+	 * @return the price of the product based on the comparison type
+	 */
 	public static double getSortVal(Product product, String compType) {
 		switch (compType) {
 			case "Original Price":

@@ -25,7 +25,7 @@ public class ShellSort {
 
                 // Move smaller values to the right
                 while (j >= gap &&
-                       comparator.compare(products[j - gap], temp) < 0) {
+                       compare(products[j - gap], temp, comparator) < 0) {
 
                     products[j] = products[j - gap];
                     j -= gap;
@@ -59,6 +59,19 @@ public class ShellSort {
                 products[j] = temp;
             }
         }
+    }
+	/**
+	 * Checks to see if the comparator is provided, if not provided uses the default compareTo
+	 * @param a The first product that gets compared to b with
+	 * @param b The second product 
+	 * @param comparator The compare type that is supposed to be used 
+	 * @return The result of the compare
+	 */
+    private static int compare(Product a, Product b, Comparator<Product> comparator) {
+        if (comparator == null) {
+            return a.compareTo(b);
+        }
+        return comparator.compare(a, b);
     }
 }
 

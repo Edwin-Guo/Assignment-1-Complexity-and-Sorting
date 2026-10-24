@@ -87,7 +87,7 @@ public class QuickSort {
 			}
 			j--;
 			//While the value of the array is less than the benchmark(pivot), j moves left.
-			while (compare(products[j], benchmark, comp) < 0) { 
+			while (j > low && compare(products[j], benchmark, comp) < 0) { 
 				j--;
 			}
 			//Loops break when both left and right pointer intersects.

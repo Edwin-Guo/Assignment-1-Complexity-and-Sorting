@@ -30,14 +30,15 @@ public abstract class Product implements Comparable<Product> {
 		return updatedPrice;
 	}
 	/**
-	 * Each product has their own real difference formula requiring them to make it
-	 * @return
+	 * The real price difference adjusted based on the product adjustment value provided by the subclass
+	 * @return The real difference of the prices
 	 */
 	public abstract double calcRealDiff();
 	
 	/**
+	 * Compares one product with another product based on their real difference
 	 * @param that The product that it compares the RealDiff values of
-	 * @return The result of the comparison 
+	 * @return Positive if number is greater, negative is less, and zero if equal 
 	 */
 	public int compareTo(Product that) {
 		if( this.calcRealDiff() > that.calcRealDiff())

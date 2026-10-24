@@ -4,9 +4,13 @@ package utilities;
 import java.util.Comparator;
 import domain.Product;
 
+//Sorting product array using the Shellsort Algorithm.
 public class ShellSort {
 
-    // Shell Sort using Comparator
+    /**
+     * @param products array contains the elements.
+     * @param comparator is used to compare the elements.
+     */
     public static void sort(Product[] products,
                             Comparator<Product> comparator) {
 

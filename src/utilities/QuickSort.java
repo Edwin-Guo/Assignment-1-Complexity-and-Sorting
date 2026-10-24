@@ -63,6 +63,10 @@ public class QuickSort {
 			products[mid] = products[high]; 
 			products[high] = temp; 
 		}
+
+		if (high - low < 3) {
+			return mid;
+		}
 	/** Temporary variable temp1 stores the current [mid] index.* Since [high] has already been figured out from previous statement, [j] is then pushed inward (products[high - 1]) because that element has been sorted and is in the right place.
 		* Index is move one inward.
 	*/

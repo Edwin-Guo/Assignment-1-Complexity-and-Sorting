@@ -63,10 +63,9 @@ public class QuickSort {
 			products[mid] = products[high]; 
 			products[high] = temp; 
 		}
-		/*Temporary variable temp1 stores the current [mid] index.
-		 * Since [high] has already been figured out from previous statement, [j] is then pushed inward (products[high - 1]) because that element has been sorted and is in the right place.
-		 * Index is move one inward.
-		 */
+	/** Temporary variable temp1 stores the current [mid] index.* Since [high] has already been figured out from previous statement, [j] is then pushed inward (products[high - 1]) because that element has been sorted and is in the right place.
+		* Index is move one inward.
+	*/
 		Product temp1 = products[mid];
 		products[mid] = products[high - 1];
 		products[high - 1] = temp1;
@@ -95,18 +94,18 @@ public class QuickSort {
 			if (i >= j) { 
 				break;
 			}
-			/*
-			 * Used to make sure that both pointers (i and j) are in the correct spot and swaps them if not.
-			 * Ensures that elements are sorted properly: no small are on the right side, and no big are on the left side. 
-			 */
+	/**
+	 * Used to make sure that both pointers (i and j) are in the correct spot and swaps them if not.
+	 * Ensures that elements are sorted properly: no small are on the right side, and no big are on the left side. 
+	 */
 			Product temp2 = products[i]; 
 			products[i] = products[j]; 
 			products[j] = temp2; 
         }
-		/*
-		 * Make sures that everything is in placed in the index with proper pivot. Process repeats until every thing is sorted.
-		 * @return index for partition
-		 */
+	/**
+	 * Make sures that everything is in placed in the index with proper pivot. Process repeats until every thing is sorted.
+	 * @return index for partition
+	 */
 		Product temp3 = products[i];
 		products[i] = products[high - 1];
 		products[high - 1] = temp3;
